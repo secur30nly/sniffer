@@ -50,5 +50,3 @@ Installation for sniffer state-machine and just sniffer is the same.
 >
     >>> sudo ./sniffer
 
-# Note: The MAC-address and ip address of the host are not set by default. You can set them in the references.c file in the HOST_IP and HOST_MAC fields.
-
