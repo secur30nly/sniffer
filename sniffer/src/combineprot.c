@@ -1,5 +1,8 @@
 #include "references.h"
 #include "all_structs.h"
+
+/**L2-L3 protocol combination (IPv4-ICMP, IPv4-TCP, ARP-ARP and others)*/
+
 void next_protocol_for_ip4(unsigned char *buffer,const unsigned int lenght){
         IP_HDR *ip_hdr;
         unsigned char *packet_data;
@@ -111,3 +114,4 @@ void if_ARP(const unsigned char *buffer,const unsigned int lenght){
                 printf("[*]Данные отсутствуют.\n\v");
         printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 }
+
