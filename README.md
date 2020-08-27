@@ -1,4 +1,4 @@
-# sniffing of raw-sockets
+# Sniffing of raw-sockets
 
 # 1. Parts of project
 + all_structs.c
