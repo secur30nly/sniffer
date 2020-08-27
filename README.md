@@ -46,7 +46,7 @@ Installation for sniffer state-machine and just sniffer is the same.
 >
     >>> make clean
 
-+ 5. Run your sniffer(sudo only)
++ 5. Run your sniffer with sudo(raw-sockets require it)
 >
     >>> sudo ./sniffer
 
