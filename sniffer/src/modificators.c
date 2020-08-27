@@ -1,6 +1,8 @@
 #include "references.h"
 #include "all_structs.h"
 
+/*Modification of the protocol header fields for further forwarding (if you need it)*/
+
 void ip_proto_modify(const unsigned char *header_start){
         IP_HDR *ip_header;
         ip_header=(IP_HDR *)header_start;
@@ -18,7 +20,7 @@ void ip_proto_modify(const unsigned char *header_start){
                
                 else{
                         printf("FAILURE\n");
-                        exit(SADNESS);
+                        exit(ERROR);
                 }
        }
    
@@ -39,7 +41,7 @@ void ip_proto_modify(const unsigned char *header_start){
 
                 else{
                         printf("FAILURE\n");
-                        exit(SADNESS);
+                        exit(ERROR);
                 }
        }
 
@@ -281,7 +283,7 @@ void arp_proto_modify(const unsigned char *header_start){
                         } 
                         else{
                                 printf("FAILURE\n");
-                                exit(SADNESS);
+                                exit(ERROR);
                         }
                 }
    
@@ -295,3 +297,4 @@ void arp_proto_modify(const unsigned char *header_start){
                 printf("\n\n[Skip]\n\n"); 
 
 }
+
