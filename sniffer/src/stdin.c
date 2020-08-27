@@ -1,6 +1,8 @@
 #include "references.h"
 #include "all_structs.h"
 
+/*Interface to manage protocol header modifications*/
+
 void modification(unsigned char *buffer,const unsigned int lenght,unsigned char **arg_vector){
         unsigned char **arg_vctr = arg_vector;
         const unsigned int packet_len = lenght;
