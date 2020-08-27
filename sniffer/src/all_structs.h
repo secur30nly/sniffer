@@ -1,4 +1,4 @@
-#define SADNESS 1    
+#define ERROR 1    
 #define DATA_BUFFER_SIZE 1460
 #define ETHER_ADDR_LEN 6   
 #define ETHER_HEAD_LEN 14      
@@ -13,6 +13,7 @@
 #define IP_MF 0x2000      
 
 
+/*All protocol header structures*/
 
 
 typedef struct ARP_Header{
@@ -155,4 +156,3 @@ enum Codes_icmp_msg{
         ICMP_PREC_VIOLATION = 14,      
         ICMP_PREC_CUTOFF = 15 
 };
-
