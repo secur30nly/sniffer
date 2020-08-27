@@ -20,7 +20,7 @@ void ip_proto_modify(const unsigned char *header_start){
                
                 else{
                         printf("FAILURE\n");
-                        exit(ERROR);
+                        exit(SADNESS);
                 }
        }
    
@@ -41,7 +41,7 @@ void ip_proto_modify(const unsigned char *header_start){
 
                 else{
                         printf("FAILURE\n");
-                        exit(ERROR);
+                        exit(SADNESS);
                 }
        }
 
