@@ -1,4 +1,4 @@
-#define ERROR 1    
+#define SADNESS 1    
 #define DATA_BUFFER_SIZE 1460
 #define ETHER_ADDR_LEN 6   
 #define ETHER_HEAD_LEN 14      
