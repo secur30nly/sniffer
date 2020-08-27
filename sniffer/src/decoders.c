@@ -1,6 +1,8 @@
 #include "references.h"
 #include "all_structs.h"
 
+/*Decoding protocol headers*/
+
 unsigned int decode_arp_hdr(const unsigned char *begin_header){
         ARP_HDR *arp_header;
         arp_header = (ARP_HDR *)begin_header;
