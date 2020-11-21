@@ -1,5 +1,6 @@
 #ifndef PREFERENCES_H
 #define PREFERENCES_H
+
 #include <stdio.h>
 #include <linux/if_packet.h>
 #include <net/if.h>
@@ -11,6 +12,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <ctype.h>
 #define IP_ADDR_LEN 4
 #define HOST_IP "192.168.0.3"
 #define HOST_MAC "\x34\xe1\x2d\xfc\xf3\xaa"
@@ -39,4 +41,5 @@
 	void STATE_TCP(unsigned char *buffer,const unsigned int lenght,int socket);
 	void STATE_UDP(unsigned char *buffer,const unsigned int lenght,int socket);
 	void STATE_IGMP(unsigned char *buffer,const unsigned int lenght,int socket);
-#endif
+
+	#endif

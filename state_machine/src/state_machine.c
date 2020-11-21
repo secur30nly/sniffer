@@ -23,9 +23,9 @@ int main(int argc,unsigned char *argv[]){
         if (raw_sock == -1){
                 printf("%s","ERROR_RAW\n");
                 exit(SADNESS);
-        } 
+        }
 
-        enum ARP_IP{
+    enum ARP_IP{
         ARP = 0x0806,
         IP4 = 0x0800,
         IP = 0,
@@ -33,10 +33,10 @@ int main(int argc,unsigned char *argv[]){
         IGMP = 2,
         TCP = 6,
         UDP = 17
-        };
+    };
 
         unsigned char buffer[DATA_BUFFER_SIZE] = {0};
-        for(int i=0;i<5;i++){
+        for(int i=0; i < 5; i++){
                 int pack_size=recv(raw_sock_all,buffer,1024,0);
                 ETHER_HDR *ether_ptr;
                 ether_ptr = (ETHER_HDR *)buffer;

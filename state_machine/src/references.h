@@ -39,4 +39,7 @@
 	void STATE_TCP(unsigned char *buffer,const unsigned int lenght,int socket);
 	void STATE_UDP(unsigned char *buffer,const unsigned int lenght,int socket);
 	void STATE_IGMP(unsigned char *buffer,const unsigned int lenght,int socket);
+	struct sockaddr_ll createSaddr();
+    void saveInPCAP(unsigned char *buffer);
+
 #endif

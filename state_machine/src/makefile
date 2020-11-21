@@ -6,8 +6,8 @@ CFLAGS=-c -g
 
 all: $(TARGET)
 
-$(TARGET): combineprot.o decoders.o dumptraffic.o state_machine.o modificators.o modify_manage.o states.o
-	$(CC) -o $(TARGET) combineprot.o decoders.o dumptraffic.o state_machine.o modificators.o states.o modify_manage.o -lpcap
+$(TARGET): combineprot.o decoders.o dataHandlers.o state_machine.o modificators.o modify_manage.o states.o
+	$(CC) -o $(TARGET) combineprot.o decoders.o dataHandlers.o state_machine.o modificators.o states.o modify_manage.o -lpcap
 
 combineprot.o: combineprot.c
 	$(CC) $(CFLAGS) combineprot.c
@@ -15,8 +15,8 @@ combineprot.o: combineprot.c
 decoders.o: decoders.c
 	$(CC) $(CFLAGS) decoders.c
 
-dumptraffic.o: dumptraffic.c
-	$(CC) $(CFLAGS) dumptraffic.c
+dataHandlers.o: dataHandlers.c
+	$(CC) $(CFLAGS) dataHandlers.c
 
 state_machine.o: state_machine.c
 	$(CC) $(CFLAGS) state_machine.c
