@@ -2,8 +2,7 @@
 #include "all_structs.h"
 
 unsigned int decode_arp_hdr(const unsigned char *begin_header){
-        ARP_HDR *arp_header;
-        arp_header = (ARP_HDR *)begin_header;
+        ARP_HDR *arp_header = (ARP_HDR *)begin_header;
         int arp_header_lenght = sizeof(ARP_HDR);
         printf("\t{:::::ARP-PACKET:::::}\n");
         printf("\tMAC-Type: %hu\t Protocol Type: 0x%x\n",ntohs(arp_header->arp_mac_type),ntohs(arp_header->arp_prot_type));
@@ -33,7 +32,8 @@ unsigned int decode_arp_hdr(const unsigned char *begin_header){
 
 
 void decode_eth_hdr(const unsigned char *begin_header) {
-        const struct Ether_Header *ethernet_header;
+        const struct Ether_Header *ethernet_header = (const struct Ether_Header *)begin_header;
+    ;
         ethernet_header = (const struct Ether_Header *)begin_header;
         printf("[[Layer 2 :: Ethernet header]]\n");
         printf("[Source: %02x",ethernet_header->ether_src_addr[0]);
@@ -82,9 +82,8 @@ void decode_eth_hdr(const unsigned char *begin_header) {
 
 
 unsigned int decode_ip_hdr(const unsigned char *begin_header){ 
-        const struct IP_Header *ip_header;
-        ip_header = (const struct IP_Header *)begin_header; 
-        size_t size_ip_header= ip_header->ip_ihl * 4;    
+        const struct IP_Header *ip_header = (const struct IP_Header *)begin_header;
+        size_t size_ip_header= ip_header->ip_ihl * 4;
         printf("\t((Layer3 ::: IP-Header))\n");  
         printf("\t(IP-version: %u\tIHL: %u\n", ip_header->ip_ver,ip_header->ip_ihl);
         printf("\tSource: %s\t", inet_ntoa(*(struct in_addr*)&ip_header->ip_source));          
@@ -129,9 +128,8 @@ unsigned int decode_ip_hdr(const unsigned char *begin_header){
 
 
 unsigned int decode_tcp_hdr(const unsigned char *begin_header){
-        const struct TCP_Header *tcp_header;
-        tcp_header = (const struct TCP_Header *)begin_header;   
-        unsigned int size_tcp_header = 4 * (tcp_header->tcp_offset);     
+        const struct TCP_Header *tcp_header = (const struct TCP_Header *)begin_header;
+        unsigned int size_tcp_header = 4 * (tcp_header->tcp_offset);
         printf("{{Layer 4 :::: TCP Header}}\n");
         printf("{SRC port: %hu\t", ntohs(tcp_header->tcp_src_port));
         printf("Dest port: %hu\n", ntohs(tcp_header->tcp_dest_port));
@@ -158,9 +156,8 @@ unsigned int decode_tcp_hdr(const unsigned char *begin_header){
 
 
 unsigned int decode_udp_hdr(const unsigned char *begin_header){
-        const struct UDP_Header *udp_pointer;
+        const struct UDP_Header *udp_pointer = (const struct UDP_Header *)begin_header;
         size_t size_udp_header = sizeof(struct UDP_Header);
-        udp_pointer = (const struct UDP_Header *)begin_header;
         printf("{{Layer 4 :::: UDP-Header}}\n");
         printf("(SRC-port: %hu\t DST-port: %hu\n", ntohs(udp_pointer->udp_src_port), ntohs(udp_pointer->udp_dst_port));
         printf("Lenght UDP-header: %hu\n\v", ntohs(udp_pointer->udp_len));
@@ -169,9 +166,8 @@ unsigned int decode_udp_hdr(const unsigned char *begin_header){
 
 
 unsigned int decode_igmp_hdr(const unsigned char *begin_header){
-        const struct IGMP_Header *igmp_header;
+        const struct IGMP_Header *igmp_header = (const struct IGMP_Header *)begin_header;;
         size_t size_igmp_header = sizeof(struct IGMP_Header);
-        igmp_header = (const struct IGMP_Header *)begin_header;
         printf("{{Layer 3 ::: (Service Protocol)IGMP-Header}}\n");
         printf("IGMP Type: %u\t IGMP Code: %u\n",igmp_header->igmp_type,igmp_header->igmp_code);
         printf("IGMP group address: %s\n\v", inet_ntoa(*(struct in_addr*)&igmp_header->igmp_group));
@@ -181,9 +177,8 @@ unsigned int decode_igmp_hdr(const unsigned char *begin_header){
 
 
 unsigned int decode_icmp_hdr(const unsigned char *begin_header){
-        const struct ICMP_Header *icmp_pointer;
+        const struct ICMP_Header *icmp_pointer = (const struct ICMP_Header *)begin_header;  ;
         size_t size_icmp_header = sizeof(struct ICMP_Header); 
-        icmp_pointer = (const struct ICMP_Header *)begin_header;                                               
         printf("{{Layer 3 ::: (Service Protocol)ICMP-Header}}\n");
         printf("Sequence: %u\t ID: %u\n", ntohs(icmp_pointer->seq),ntohs(icmp_pointer->id));
         printf("{ICMP Error Type: %x ", icmp_pointer->icmp_type_msg);

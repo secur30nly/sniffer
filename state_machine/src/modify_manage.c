@@ -4,26 +4,19 @@
 /*Interface to manage protocol header modifications*/
 
 void modification(unsigned char *buffer,const unsigned int lenght,unsigned char **arg_vector){
-        unsigned char **arg_vctr = arg_vector;
-        const unsigned int packet_len = lenght;
-        char c[2];
-        unsigned char *packet_buffer = buffer;
-        scanf("%1s",c);
-        if (c[0] == 'n' ){
+        char c[10];
+        fgets(c, sizeof(c), stdin);
+        if (strncmp(c, "n\n", sizeof(c)) == 0){
                 printf("\n\n");
                 return;
         }
 
         printf("Choose: {ARP}, {ICMP}(Only payload), {IP}, {UDP}, {TCP}\n");
         char protocol[10];
-        char *ptr= protocol;
-        scanf("%s", ptr);
-        IP_HDR *ip_header;
-        ip_header = (IP_HDR *)buffer;
-        ip_header = (IP_HDR *)(buffer + ETHER_HEAD_LEN);
-        ETHER_HDR *ether_header;
-        ether_header = (ETHER_HDR *)buffer;
-        if(strcmp(ptr,"ARP") == 0){
+        fgets(protocol, sizeof(protocol), stdin);
+        IP_HDR *ip_header = (IP_HDR *)(buffer + ETHER_HEAD_LEN);
+        ETHER_HDR *ether_header = (ETHER_HDR *)buffer;
+        if(strncmp(protocol,"ARP\n", sizeof(protocol)) == 0){
                 if(ntohs(ether_header->ether_type) == ARP){
                         arp_proto_modify(buffer + ETHER_HEAD_LEN);
         }     
@@ -32,7 +25,7 @@ void modification(unsigned char *buffer,const unsigned int lenght,unsigned char 
                         return ;
                 }   
         }
-        if(strcmp(ptr,"IP") == 0){
+        if(strncmp(protocol,"IP\n", sizeof(protocol)) == 0){
                 if(ntohs(ether_header->ether_type) == IPv4){ 
                         ip_proto_modify(buffer + ETHER_HEAD_LEN);
                 }
@@ -42,9 +35,9 @@ void modification(unsigned char *buffer,const unsigned int lenght,unsigned char 
                         return ;
                 }   
         }
-        if(strcmp(ptr,"ICMP") == 0){
+        if(strncmp(protocol,"ICMP\n", sizeof(protocol)) == 0){
                 if(ip_header->ip_type_prot == ICMP){
-                        icmp_proto_modify(packet_buffer,packet_len,arg_vctr);
+                        icmp_proto_modify(buffer, lenght, arg_vector);
                 }
  
                 else{
@@ -52,7 +45,7 @@ void modification(unsigned char *buffer,const unsigned int lenght,unsigned char 
                         return ;
                 }   
         }
-        if(strcmp(ptr,"UDP") == 0){
+        if(strncmp(protocol, "UDP\n", sizeof(protocol)) == 0){
                 if(ip_header->ip_type_prot == UDP){
                         udp_proto_modify(buffer + ETHER_HEAD_LEN + sizeof(IP_HDR));
                 } 
@@ -62,7 +55,7 @@ void modification(unsigned char *buffer,const unsigned int lenght,unsigned char 
                         return ;
                 }   
         }
-        if(strcmp(ptr,"TCP") == 0){
+        if(strncmp(protocol, "TCP\n", sizeof(protocol)) == 0){
                 if(ip_header->ip_type_prot == TCP){
                         tcp_proto_modify(buffer + ETHER_HEAD_LEN + sizeof(IP_HDR));
                 }
@@ -73,10 +66,9 @@ void modification(unsigned char *buffer,const unsigned int lenght,unsigned char 
                 }   
         }
 }
- 
+
 void if_have_tcp_udp(const unsigned char *buffer){
-        IP_HDR *ip_header;
-        ip_header = (IP_HDR *)(buffer + ETHER_HEAD_LEN);
+        IP_HDR *ip_header = (IP_HDR *)(buffer + ETHER_HEAD_LEN);
         if(ip_header->ip_type_prot == UDP)
                 udp_proto_modify(buffer + ETHER_HEAD_LEN + sizeof(IP_HDR));
 

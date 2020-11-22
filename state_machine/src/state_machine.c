@@ -37,37 +37,34 @@ int main(int argc,unsigned char *argv[]){
 
         unsigned char buffer[DATA_BUFFER_SIZE] = {0};
         for(int i=0; i < 5; i++){
-                int pack_size=recv(raw_sock_all,buffer,1024,0);
-                ETHER_HDR *ether_ptr;
-                ether_ptr = (ETHER_HDR *)buffer;
-                IP_HDR *ip_ptr;
-                ip_ptr = (IP_HDR *)buffer;
-                ip_ptr = (IP_HDR *)(buffer + ETHER_HEAD_LEN);
+                int pack_size=recv(raw_sock_all, buffer, 1024, 0);
+                ETHER_HDR *ether_ptr = (ETHER_HDR *)buffer;
+                IP_HDR *ip_ptr = (IP_HDR *)(buffer + ETHER_HEAD_LEN);
                 switch(ntohs(ether_ptr->ether_type)){
                         case ARP:
-                                STATE_ARP(buffer,pack_size,raw_sock);
+                                STATE_ARP(buffer, pack_size, raw_sock);
                                 break;
                         
                         case IP4:
                                 switch(ip_ptr->ip_type_prot){
                                         case IP:
-                                                STATE_IP(buffer,pack_size,raw_sock);
+                                                STATE_IP(buffer, pack_size, raw_sock);
                                                 break;
 
                                         case ICMP:
-                                                STATE_ICMP(buffer,pack_size,raw_sock,arg_vector);
+                                                STATE_ICMP(buffer, pack_size, raw_sock, arg_vector);
                                                 break;
 
                                         case TCP:
-                                                STATE_TCP(buffer,pack_size,raw_sock);
+                                                STATE_TCP(buffer, pack_size, raw_sock);
                                                 break;
 
                                         case UDP:
-                                                STATE_UDP(buffer,pack_size,raw_sock);
+                                                STATE_UDP(buffer, pack_size, raw_sock);
                                                 break;
 
                                         case IGMP:
-                                                STATE_IGMP(buffer,pack_size,raw_sock);
+                                                STATE_IGMP(buffer, pack_size, raw_sock);
                                                 break;
                                         default:
                                                 break;

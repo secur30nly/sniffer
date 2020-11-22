@@ -30,7 +30,15 @@
     <list default="true" id="02114374-2946-4bfe-96d8-949cbd0ca212" name="Default Changelist" comment="fixes">
       <change beforePath="$PROJECT_DIR$/../sniffer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sniffer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/&#10;" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/combineprot.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/combineprot.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataHandlers.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataHandlers.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/decoders.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/decoders.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modificators.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/modificators.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modify_manage.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/modify_manage.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/references.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/references.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state_machine.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/state_machine.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/states.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/states.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,9 +65,9 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -71,7 +79,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605957470188</updated>
-      <workItem from="1605957471355" duration="5124000" />
+      <workItem from="1605957471355" duration="6156000" />
+      <workItem from="1606037149021" duration="5917000" />
     </task>
     <task id="LOCAL-00001" summary="fixes">
       <created>1605961715832</created>
@@ -87,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605962158217</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixes">
+      <created>1605962730268</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605962730268</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,6 +119,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixes" />
@@ -113,10 +130,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="100" y="100" width="1720" height="840" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605962169095" />
-    <state x="560" y="256" key="Vcs.Push.Dialog.v2" timestamp="1605962170759">
+    <state x="560" y="256" key="Vcs.Push.Dialog.v2" timestamp="1605962798616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="560" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605962170759" />
+    <state x="560" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605962798616" />
     <state x="768" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605961636903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
