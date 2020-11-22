@@ -5,13 +5,13 @@
   >All protocol headers structures
  
 + combineProto.c
- >L2-L3 protocol combination (IPv4-ICMP, IPv4-TCP, ARP-ARP and others)
+  >L2-L3 protocol combination (IPv4-ICMP, IPv4-TCP, ARP-ARP and others)
  
 + decoders.c
   >Decoding of all protocol headers
   
 + dataHandlers.c
- >Module with different functions
+  >Module with different functions
   
 + main.c
   >Main C-file
