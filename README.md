@@ -13,7 +13,7 @@
 + dataHandlers.c
  >Module with different functions
   
-+  main.c
++ main.c
   >Main C-file
   
 + makefile
