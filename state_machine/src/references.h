@@ -16,7 +16,7 @@
 #define HOST_MAC "\x34\xe1\x2d\xfc\xf3\xaa"
 
 	void next_protocol_for_ip4(unsigned char *buffer,const unsigned int lenght);
-	void if_ARP(const unsigned char *buffer,const unsigned int lenght);
+	void if_ARP(unsigned char *buffer, unsigned int lenght);
 	unsigned int decode_arp_hdr(const unsigned char *begin_header);
 	void decode_eth_hdr(const unsigned char *begin_header);
 	unsigned int decode_ip_hdr(const unsigned char *begin_header);
@@ -40,6 +40,7 @@
 	void STATE_UDP(unsigned char *buffer,const unsigned int lenght,int socket);
 	void STATE_IGMP(unsigned char *buffer,const unsigned int lenght,int socket);
 	struct sockaddr_ll createSaddr();
-    	void saveInPCAP(unsigned char *buffer);
-
+	void saveInPCAP(unsigned char *buffer);
+    void packetSender(int check, unsigned char *buffer, struct sockaddr_ll saddr, int socket);
+    void showDumpTraffic(unsigned char *buffer, unsigned int lenght, int totalHeaderSize);
 #endif

@@ -37,7 +37,7 @@ int main(int argc,unsigned char *argv[]){
 
         unsigned char buffer[DATA_BUFFER_SIZE] = {0};
         for(int i=0; i < 5; i++){
-                int pack_size=recv(raw_sock_all, buffer, 1024, 0);
+                int pack_size = recv(raw_sock_all, buffer, 1024, 0);
                 ETHER_HDR *ether_ptr = (ETHER_HDR *)buffer;
                 IP_HDR *ip_ptr = (IP_HDR *)(buffer + ETHER_HEAD_LEN);
                 switch(ntohs(ether_ptr->ether_type)){
