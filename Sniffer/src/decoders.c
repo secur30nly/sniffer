@@ -1,5 +1,5 @@
 #include "references.h"
-#include "all_structs.h"
+#include "headerStructs.h"
 
 unsigned int decode_arp_hdr(const unsigned char *begin_header){
         ARP_HDR *arp_header = (ARP_HDR *)begin_header;

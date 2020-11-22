@@ -1,5 +1,5 @@
 #include "references.h"
-#include "all_structs.h"
+#include "headerStructs.h"
 void next_protocol_for_ip4(unsigned char *buffer,const unsigned int lenght){
         IP_HDR *ip_hdr = (IP_HDR *)(buffer + ETHER_HEAD_LEN);
         switch(ip_hdr->ip_type_prot){

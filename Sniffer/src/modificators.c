@@ -1,5 +1,5 @@
 #include "references.h"
-#include "all_structs.h"
+#include "headerStructs.h"
 
 void ip_proto_modify(const unsigned char *header_start){
         IP_HDR *ip_header = (IP_HDR *)header_start;

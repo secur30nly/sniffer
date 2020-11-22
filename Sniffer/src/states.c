@@ -1,5 +1,5 @@
 #include "references.h"
-#include "all_structs.h"
+#include "headerStructs.h"
 
 
 void STATE_ICMP(unsigned char *buffer,const unsigned int lenght,int socket,unsigned char **arg_vector){

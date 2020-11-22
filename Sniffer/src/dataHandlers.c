@@ -1,5 +1,5 @@
 #include "references.h"
-#include "all_structs.h"
+#include "headerStructs.h"
 
 void dumptraffic(const unsigned char *data_buffer, const unsigned int length) {
     unsigned char byte;
