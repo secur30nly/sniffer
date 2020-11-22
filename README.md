@@ -53,5 +53,6 @@ Installation for sniffer state-machine and just sniffer is the same.
 >
     >>> sudo ./sniffer
     
+
 + Or run ./progAssembly.sh and execute sniffer.
 
