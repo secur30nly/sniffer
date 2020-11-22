@@ -1,19 +1,19 @@
 # Sniffing of raw-sockets
 
 # 1. Parts of project
-+ all_structs.c
++ headerStructs.c
   >All protocol headers structures
  
-+ combineprot.c
++ combineProto.c
  >L2-L3 protocol combination (IPv4-ICMP, IPv4-TCP, ARP-ARP and others)
  
 + decoders.c
   >Decoding of all protocol headers
   
-+ dumptraffic.c
- >Function for dump-traffic
++ dataHandlers.c
+ >Module with different functions
   
-+ main.c
++  main.c
   >Main C-file
   
 + makefile
@@ -22,11 +22,14 @@
 + modificators.c
   >Modification of the protocol header fields for further forwarding (if you need it)
   
-+ modify_manage.c
++ modifyHandler.c
   >Interface to manage protocol header modifications
   
 + references.c
   >Connecting the required libraries and declaration of all functions
+ 
++ progAssembly.sh
+  >Quick build bash-script
   
 # 2. Installation
 Installation for sniffer state-machine and just sniffer is the same.
@@ -49,4 +52,6 @@ Installation for sniffer state-machine and just sniffer is the same.
 + 5. Run your sniffer with sudo(raw-sockets require it)
 >
     >>> sudo ./sniffer
+    
++ Or run ./progAssembly.sh and execute sniffer.
 
