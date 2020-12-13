@@ -81,7 +81,7 @@ void packetSender(int check, unsigned char *buffer, struct sockaddr_ll saddr, in
             }
         }
         else{
-            printf("\n]----------------==={PACKET WAS NOT SENT}===----------------[\n\n");
+            printf("\n]----------------==={PACKET WAS NOT SENT}===-----------------[\n\n");
         }
     }
 }
