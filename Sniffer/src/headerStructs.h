@@ -65,7 +65,7 @@ typedef struct IGMP_Header
 
 typedef struct Ether_Header 
 {
-         unsigned char   ether_dst_addr[ETHER_ADDR_LEN];
+         unsigned char ether_dst_addr[ETHER_ADDR_LEN];
          unsigned char ether_src_addr[ETHER_ADDR_LEN];
          unsigned short ether_type;
 }ETHER_HDR;

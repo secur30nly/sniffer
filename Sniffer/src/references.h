@@ -12,7 +12,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #define IP_ADDR_LEN 4
-#define HOST_IP "192.168.0.3"
+#define HOST_IP "192.168.0.171"
 #define HOST_MAC "\x34\xe1\x2d\xfc\xf3\xaa"
 
 	void next_protocol_for_ip4(unsigned char *buffer,const unsigned int lenght);
@@ -39,8 +39,9 @@
 	void STATE_TCP(unsigned char *buffer,const unsigned int lenght,int socket);
 	void STATE_UDP(unsigned char *buffer,const unsigned int lenght,int socket);
 	void STATE_IGMP(unsigned char *buffer,const unsigned int lenght,int socket);
-	struct sockaddr_ll createSaddr();
-	void saveInPCAP(unsigned char *buffer);
-    void packetSender(int check, unsigned char *buffer, struct sockaddr_ll saddr, int socket);
+	struct sockaddr_ll createSaddr(const unsigned char *buffer);
+	void saveInPCAP(unsigned char *buffer, const unsigned int lenght);
+    void packetSender(int check, unsigned char *buffer,
+                      struct sockaddr_ll saddr, int socket, const unsigned int lenght);
     void showDumpTraffic(unsigned char *buffer, unsigned int lenght, int totalHeaderSize);
 #endif

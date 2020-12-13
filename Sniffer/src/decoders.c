@@ -33,8 +33,7 @@ unsigned int decode_arp_hdr(const unsigned char *begin_header){
 
 void decode_eth_hdr(const unsigned char *begin_header) {
         const struct Ether_Header *ethernet_header = (const struct Ether_Header *)begin_header;
-    ;
-        ethernet_header = (const struct Ether_Header *)begin_header;
+
         printf("[[Layer 2 :: Ethernet header]]\n");
         printf("[Source: %02x",ethernet_header->ether_src_addr[0]);
         for(int i = 1; i<ETHER_ADDR_LEN; i++)
@@ -74,7 +73,7 @@ void decode_eth_hdr(const unsigned char *begin_header) {
                         printf("(VLAN-tagged (IEEE 802.1Q) frame with double tagging) ]\n\n");
                         break;
                 default:
-                        printf("(Неизвестный протокол) ]\n\n");
+                        printf("(Неизвестный протокол)\n\n");
                         break;
         }
 }
