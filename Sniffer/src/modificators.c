@@ -78,7 +78,8 @@ void icmp_proto_modify(unsigned char *buffer,const unsigned int lenght,unsigned 
 
 int ether_head_modify(const unsigned char *header_start){
         ETHER_HDR *ether_ptr = (ETHER_HDR *)header_start;
-        printf("\n[Layer 2 :: Ether-header] Modification MAC-address. Continue? (y/n) ");
+        printf("\n[Layer 2 :: Ether-header] Modification MAC-address (If not, you can't send packet). "
+               "Continue? (y/n) ");
         char x[10];
         fgets(x, sizeof(x), stdin);
         if (strncmp(x, "y\n", sizeof(x)) == 0){

@@ -50,3 +50,11 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+/.idea/modules.xml
+/Sniffer/.idea/shelf/Uncommitted_changes_before_Update_at_22_11_2020,_18_04_[Default_Changelist]/shelved.patch
+/Sniffer/.idea/shelf/Uncommitted_changes_before_Update_at_22_11_2020,_18_04_[Default_Changelist]1/shelved.patch
+/.idea/sniffer.iml
+/Sniffer/.idea/shelf/Uncommitted_changes_before_Update_at_22_11_2020__18_04__Default_Changelist_.xml
+/Sniffer/.idea/shelf/Uncommitted_changes_before_Update_at_22_11_2020__18_04__Default_Changelist_1.xml
+/.idea/vcs.xml
+/.idea/workspace.xml

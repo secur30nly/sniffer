@@ -44,4 +44,5 @@
     void packetSender(int check, unsigned char *buffer,
                       struct sockaddr_ll saddr, int socket, const unsigned int lenght);
     void showDumpTraffic(unsigned char *buffer, unsigned int lenght, int totalHeaderSize);
+    void banner();
 #endif

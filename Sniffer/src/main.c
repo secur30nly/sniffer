@@ -4,6 +4,7 @@
 /*State-Machine*/
 
 int main(int argc,unsigned char *argv[]){
+        banner();
         char *dev, errbuf[PCAP_ERRBUF_SIZE];
         dev = pcap_lookupdev(errbuf);
         if (dev == NULL) {
