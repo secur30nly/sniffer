@@ -13,7 +13,7 @@
 #include <arpa/inet.h>
 #define IP_ADDR_LEN 4
 #define HOST_IP "192.168.0.171"
-#define HOST_MAC "\x34\xe1\x2d\xfc\xf3\xaa"
+#define HOST_MAC "\x35\xe1\x22\xfa\xc3\x3a"
 
 	void next_protocol_for_ip4(unsigned char *buffer,const unsigned int lenght);
 	void if_ARP(unsigned char *buffer, unsigned int lenght);

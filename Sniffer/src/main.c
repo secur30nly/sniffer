@@ -5,26 +5,24 @@
 
 int main(int argc,unsigned char *argv[]){
         banner();
+        char start[5];
+        printf("%s", "Start sniffing?");
+        fgets(start, sizeof(start), stdin);
         char *dev, errbuf[PCAP_ERRBUF_SIZE];
         dev = pcap_lookupdev(errbuf);
         if (dev == NULL) {
-                fprintf(stderr, "Couldn't find default device: %s\n", errbuf);
+                fprintf(stderr, "[-]Couldn't find default device: %s\n", errbuf);
                 return(2);
         }
-        printf("Sniffing on device: %s\n", dev);
+        printf("[+]Sniffing on device: %s\n\n", dev);
 
         unsigned char **arg_vector = argv;
         int raw_sock_all = socket(AF_PACKET,SOCK_RAW,htons(ETH_P_ALL));
         if (raw_sock_all == -1){
-                printf("%s", "ERROR_ALL\n");
+                fprintf(stderr, "%s", "Raw-socket error. Maybe try with sudo?\n");
                 exit(SADNESS); 
         }
 
-        int raw_sock = socket(AF_PACKET,SOCK_RAW,htons(ETH_P_ALL));
-        if (raw_sock == -1){
-                printf("%s","ERROR_RAW\n");
-                exit(SADNESS);
-        }
 
     enum ARP_IP{
         ARP = 0x0806,
@@ -43,29 +41,29 @@ int main(int argc,unsigned char *argv[]){
                 IP_HDR *ip_ptr = (IP_HDR *)(buffer + ETHER_HEAD_LEN);
                 switch(ntohs(ether_ptr->ether_type)){
                         case ARP:
-                                STATE_ARP(buffer, pack_size, raw_sock);
+                                STATE_ARP(buffer, pack_size, raw_sock_all);
                                 break;
                         
                         case IP4:
                                 switch(ip_ptr->ip_type_prot){
                                         case IP:
-                                                STATE_IP(buffer, pack_size, raw_sock);
+                                                STATE_IP(buffer, pack_size, raw_sock_all);
                                                 break;
 
                                         case ICMP:
-                                                STATE_ICMP(buffer, pack_size, raw_sock, arg_vector);
+                                                STATE_ICMP(buffer, pack_size, raw_sock_all, arg_vector);
                                                 break;
 
                                         case TCP:
-                                                STATE_TCP(buffer, pack_size, raw_sock);
+                                                STATE_TCP(buffer, pack_size, raw_sock_all);
                                                 break;
 
                                         case UDP:
-                                                STATE_UDP(buffer, pack_size, raw_sock);
+                                                STATE_UDP(buffer, pack_size, raw_sock_all);
                                                 break;
 
                                         case IGMP:
-                                                STATE_IGMP(buffer, pack_size, raw_sock);
+                                                STATE_IGMP(buffer, pack_size, raw_sock_all);
                                                 break;
                                         default:
                                                 break;
