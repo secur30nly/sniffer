@@ -31,7 +31,7 @@
 	void tcp_proto_modify(const unsigned char *header_start);
 	void udp_proto_modify(const unsigned char *header_start);
 	void arp_proto_modify(const unsigned char *header_start);
-	void modification(unsigned char *buffer,const unsigned int lenght,unsigned char **arg_vector);
+	void modification(unsigned char *buffer,const unsigned int lenght,unsigned char **icmp_payload);
 	void if_have_tcp_udp(const unsigned char *buffer);
 	void STATE_ICMP(unsigned char *buffer,const unsigned int lenght,int socket,unsigned char **arg_vector);
 	void STATE_ARP(unsigned char *buffer,const unsigned int lenght,int socket);

@@ -3,7 +3,7 @@
 
 /*Interface to manage protocol header modifications*/
 
-void modification(unsigned char *buffer,const unsigned int lenght,unsigned char **arg_vector){
+void modification(unsigned char *buffer,const unsigned int lenght,unsigned char **icmp_payload){
         char c[10];
         fgets(c, sizeof(c), stdin);
         if (strncmp(c, "n\n", sizeof(c)) == 0){
@@ -37,7 +37,7 @@ void modification(unsigned char *buffer,const unsigned int lenght,unsigned char 
         }
         if(strncmp(protocol,"ICMP\n", sizeof(protocol)) == 0){
                 if(ip_header->ip_type_prot == ICMP){
-                        icmp_proto_modify(buffer, lenght, arg_vector);
+                        icmp_proto_modify(buffer, lenght, icmp_payload);
                 }
  
                 else{

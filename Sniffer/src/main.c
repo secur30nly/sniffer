@@ -5,6 +5,7 @@
 
 int main(int argc,unsigned char *argv[]){
         banner();
+        unsigned char **icmp_payload = argv;
         char start[5];
         printf("%s", "Start sniffing?");
         fgets(start, sizeof(start), stdin);
@@ -16,7 +17,6 @@ int main(int argc,unsigned char *argv[]){
         }
         printf("[+]Sniffing on device: %s\n\n", dev);
 
-        unsigned char **arg_vector = argv;
         int raw_sock_all = socket(AF_PACKET,SOCK_RAW,htons(ETH_P_ALL));
         if (raw_sock_all == -1){
                 fprintf(stderr, "%s", "Raw-socket error. Maybe try with sudo?\n");
@@ -51,7 +51,7 @@ int main(int argc,unsigned char *argv[]){
                                                 break;
 
                                         case ICMP:
-                                                STATE_ICMP(buffer, pack_size, raw_sock_all, arg_vector);
+                                                STATE_ICMP(buffer, pack_size, raw_sock_all, icmp_payload);
                                                 break;
 
                                         case TCP:

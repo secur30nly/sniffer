@@ -2,11 +2,11 @@
 #include "headerStructs.h"
 
 
-void STATE_ICMP(unsigned char *buffer,const unsigned int lenght,int socket,unsigned char **arg_vector){
+void STATE_ICMP(unsigned char *buffer,const unsigned int lenght,int socket,unsigned char **icmp_payload){
     next_protocol_for_ip4(buffer,lenght);
     saveInPCAP(buffer, lenght);
 	int check = ether_head_modify(buffer);
-	icmp_proto_modify(buffer, lenght, arg_vector);
+	icmp_proto_modify(buffer, lenght, icmp_payload);
     struct sockaddr_ll saddr = createSaddr(buffer);
     packetSender(check, buffer, saddr, socket, lenght);
 
