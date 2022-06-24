@@ -1,4 +1,4 @@
-# Sniffing of raw-sockets
+# Training project. Sniffing of raw-sockets.
 
 # 1. Parts of project
 + headerStructs.c
